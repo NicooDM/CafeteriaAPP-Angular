@@ -1,0 +1,6 @@
+.v-line{
+    border-left: thick solid rgb(245, 242, 242);
+    height:100%;
+    left: 50%;
+    position: absolute;
+   }
