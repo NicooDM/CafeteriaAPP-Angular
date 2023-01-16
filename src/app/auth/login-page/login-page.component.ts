@@ -1,18 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuarios } from '../interface/usuario.interface';
+import { UsersService } from 'src/app/cafeteria/users.service';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css'],
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit{
   terminoUsuario: string = '';
   terminoPassword: string = '';
-  log: boolean = false;
-  users: Usuarios | any;
-  constructor(private router: Router) {}
+  errorlog: boolean = false;
+  users: Usuarios |any;
+  userRegister: Usuarios |any;
+  constructor(private router: Router, private userService : UsersService) {}
+  ngOnInit(){
+   /* this.userService.getUsers().subscribe(resp=>{
+     
+      console.log(resp)
+    })*/
+  }
 
   logear() {
     localStorage.setItem('user', this.terminoUsuario);
@@ -22,15 +30,23 @@ export class LoginPageComponent {
       usuario: this.terminoUsuario,
       password: this.terminoPassword,
     };
-
-    if (this.users.usuario === 'admin' && this.users.password === 'admin') {
-      this.log = true;
-      console.log('log ok');
-      this.terminoUsuario = '';
-      this.terminoPassword = '';
+    if (
+      localStorage.getItem('user') === 'admin' &&
+      localStorage.getItem('pass') === 'admin'
+    ) {
+      this.errorlog = false;
       this.router.navigate(['agregar']);
     } else {
-      this.router.navigate(['ingresar']);
+      this.errorlog = true;
+      this.terminoUsuario = '';
+      this.terminoPassword = '';
+    }
+    if (
+      localStorage.getItem('user') === 'user' &&
+      localStorage.getItem('pass') === 'user'
+    ) {
+      this.errorlog = false;
+      this.router.navigate(['productos']);
     }
   }
 }

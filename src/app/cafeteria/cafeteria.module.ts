@@ -2,9 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AgregarPageComponent } from './agregar-page/agregar-page.component';
-import { ServiciosPageComponent } from './servicios-page/servicios-page.component';
 import { ProductosPageComponent } from './productos-page/productos-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { RegistrarseComponent } from './registrarse/registrarse.component';
+import { MisComprasComponent } from './mis-compras/mis-compras.component';
+import { FavoritosComponent } from './favoritos/favoritos.component';
+
 
 
 
@@ -13,9 +17,13 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     HomePageComponent,
     AgregarPageComponent,
-    ServiciosPageComponent,
     ProductosPageComponent,
     FooterComponent,
+    RegistrarseComponent,
+    MisComprasComponent,
+    FavoritosComponent,
+  
+    
     
   ],
   exports:[
@@ -23,7 +31,8 @@ import { FooterComponent } from './footer/footer.component';
     AgregarPageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class CafeteriaModule { }

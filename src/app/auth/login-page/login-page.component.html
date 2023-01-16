@@ -4,11 +4,10 @@
             <img src="../../../assets/loginimg.jpg" alt="" class="w-100">
            
         </div>
-        <div class="col-sm-12 col-md-6">
-            <div class="text-end">
-                <img src="../../../assets/fav.png" alt="favimg">
-            </div>
+        <div class="col-sm-12 col-md-6 styleFoont">
+           
             <h2 class="fw-bold text-center py-5">Bienvenido</h2>
+            <hr>
             <form>
                 <div class="mb-4">
                     <label class="form-label ">Usuario</label>
@@ -19,10 +18,13 @@
                     <input type="password" class="form-control" placeholder="password" required [(ngModel)]="terminoPassword" name="terminoPassword">
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary" (click)="logear()">Ingresar</button>
+                    <button type="submit" class="btn btn-outline-success" (click)="logear()">Ingresar</button>
                 </div>
         
         </form>
+        <div class="alert alert-danger my-4 styleFoont" role="alert" *ngIf="errorlog">
+            Datos erroneos! - ingrese nuevamente los datos
+          </div>
 
         </div>
         <hr>

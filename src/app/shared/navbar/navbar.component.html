@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg styleFoont ">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Cafeteria</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,24 +7,40 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="">Inicio</a>
+            <a class="nav-link active" aria-current="page" routerLink=""><i class="bi bi-house"></i>Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/productos">Productos</a>
+            <a class="nav-link" routerLink="/productos"><i class="bi bi-list"></i>Productos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/servicios">Servicios</a>
+          <li class="nav-item"  *ngIf="logUser">
+            <a class="nav-link" routerLink="/favoritos"><i class="bi bi-heart-fill text-danger"></i>Favoritos</a>
           </li>
+        
+          <li class="nav-item" *ngIf="logUser">
+            <a class="nav-link" routerLink="misCompras"><i class="bi bi-bag-check-fill mx-1"></i>Mis Compras</a>
+          </li>
+       
           <li class="nav-item">
-            <a class="nav-link" routerLink="/login">Ingresar</a>
+            <a class="nav-link" routerLink="/registrarse" *ngIf="mostrarBtn"> <i class="bi bi-person-plus-fill"></i>Registrarse</a>
+          </li>
+          
+          <li class="nav-item" *ngIf="mostrarBtn">
+            <a class="nav-link" routerLink="/login"><i class="bi bi-person-fill"></i>Ingresar</a>
+          </li>
+          <li class="nav-item" *ngIf="log===true">
+            <a class="nav-link" routerLink="/agregar"><i class="bi bi-plus"></i>Agregar</a>
+          </li>
+          <li class="nav-item" *ngIf="log===true || logUser===true">
+            <a class="nav-link" (click)="logout()" routerLink=""><i class="bi bi-box-arrow-right mx-1"></i>Logout</a>
           </li>
         
          
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar Productos" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
+          <input class="form-control me-2" type="search" placeholder="Buscar Productos" aria-label="Search" [(ngModel)]="buscarTermino" name="buscarTermino">
+          <button class="btn btn-outline-success" type="submit"(click)="buscar(buscarTermino)"><i class="bi bi-search"></i></button>
         </form>
+        
       </div>
     </div>
   </nav>

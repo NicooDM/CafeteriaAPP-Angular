@@ -1,0 +1,25 @@
+<h2 class="text-center">Registrate para Obtener 10% de descuentos!</h2>
+<hr>
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <img src="../../../assets/3xh4o1.jpg" alt="registerimg" class="w-100">
+    </div>
+    <div class="col-sm-12 col-md-6">
+        <form class="w-100">
+            <label class="form-label" >Nombre</label>
+            <input type="text"placeholder='Nombre' class="form-control" [(ngModel)]="nombreTermino" name="nombreTermino">
+            <label class="form-label" >Usuario</label>
+            <input type="text"placeholder='Nombre' class="form-control" [(ngModel)]="usuarioTermino" name="usuarioTermino">
+            <label class="form-label" >Mail</label>
+            <input type="email"placeholder='Email' class="form-control"[(ngModel)]="emailTermino" name="emailTermino">
+            <label class="form-label" >Password</label>
+            <input type="password"placeholder='Password' class="form-control"[(ngModel)]="passwordTermino" name="passwordTermino">
+            <button class="btn btn-outline-success my-3"(click)="registrarUser()">Registrarse</button>
+            <div class="alert alert-danger" role="alert" *ngIf="regError">
+                Datos Invalidos!
+              </div>
+            
+
+        </form>
+    </div>
+</div>

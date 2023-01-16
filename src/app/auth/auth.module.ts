@@ -13,7 +13,8 @@ import { CafeteriaModule } from '../cafeteria/cafeteria.module';
   imports: [
     CommonModule,
     FormsModule,
-    CafeteriaModule
+    CafeteriaModule,
+  
   ]
 })
 export class AuthModule { }

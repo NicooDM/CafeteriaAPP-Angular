@@ -1,45 +1,44 @@
 <div class="container">
-  <h2 class="text-center">Agregar Producto</h2>
+  <h2 class="text-center styleFoont">Agregar Producto</h2>
 
   <div class="row">
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-12 col-md-6 styleFoont">
       <form class="texst-center">
         <label class="form-label fw-bold">Nombre Producto</label>
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" [(ngModel)]="producto.producto" name="terminoNombre" required/>
 
         <label class="form-label fw-bold">Cantidad</label>
-        <input type="number" class="form-control" />
+        <input type="number" class="form-control" [(ngModel)]="producto.cantidad" name="terminoCantidad" required/>
+        <label class="form-label fw-bold">Descripcion</label>
+        <input type="text" class="form-control" [(ngModel)]="producto.descripcion" name="terminoDescripcion" required/>
 
         <label class="form-label fw-bold">Precio</label>
-        <input type="number" class="form-control" />
+        <input type="number" class="form-control"[(ngModel)]="producto.precio" name="terminoPrecio" required/>
 
-        <button class="btn btn-primary my-3">
-          {{ modificar ? "Modificar" : "Guardar" }}
+        <button class="btn btn-outline-success my-3" (click)="agregarProducto()">
+          Guardar
         </button>
+        <div class="alert alert-danger" role="alert" *ngIf="incompleted">
+         Debes Completar con todos los datos!
+        </div>
+       
       </form>
     </div>
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-12 col-md-6 styleFoont">
       <h4>Lista De Productos</h4>
       <ul>
-        <li>
-          Coca Cola
-          <button class="btn btn-danger my-3">
+        <li *ngFor="let item of productos; let i = index">
+          {{item.producto}} <pre>{{item.descripcion}}</pre>
+          <button class="btn btn-danger my-3" (click)="borrarProducto(i)">
             <i class="bi bi-trash"></i>
           </button>
-          <button class="btn btn-warning mx-3" (click)="modificarElemento()">
-            <i class="bi bi-justify"></i>
+          <button class="btn btn-warning mx-3" (click)="modificarElemento(i)">
+            <i class="bi bi-pencil"></i>
           </button>
         </li>
-        <li>
-          Coca Cola
-          <button class="btn btn-danger my-3">
-            <i class="bi bi-trash"></i>
-          </button>
-          <button class="btn btn-warning mx-3" (click)="modificarElemento()">
-            <i class="bi bi-justify"></i>
-          </button>
-        </li>
+        
       </ul>
     </div>
+    
   </div>
 </div>

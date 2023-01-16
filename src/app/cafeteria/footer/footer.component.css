@@ -4,3 +4,7 @@
     left: 50%;
     position: absolute;
    }
+
+   .styleFoont{
+    font-family: 'Chivo Mono', monospace;
+}
