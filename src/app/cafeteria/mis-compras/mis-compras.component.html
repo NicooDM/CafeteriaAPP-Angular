@@ -1,16 +1,17 @@
 <h4 class="text-center styleFoont">MIS COMPRAS</h4>
-<hr>
+<hr />
 
 <div class="row">
-    <div class="col-sm-12 col-md-6 styleFoont">
-        <ul>
-            <li *ngFor="let item of comprasGuardadas">{{item}}</li>
-        </ul>
-
-
-    </div>
-    <div class="col-sm-12 col-md-6">
-        <img src="../../../assets/holiday-shopping-g66be0686c_1920.jpg" alt="misCompras" class="w-100">
-    </div>
-  
+  <div class="col-sm-12 col-md-6 styleFoont">
+    <ul>
+      <li *ngFor="let item of comprasPorID">{{ item }}<i class="bi bi-bag-fill text-success"></i></li>
+    </ul>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <img
+      src="../../../assets/holiday-shopping-g66be0686c_1920.jpg"
+      alt="misCompras"
+      class="w-100"
+    />
+  </div>
 </div>

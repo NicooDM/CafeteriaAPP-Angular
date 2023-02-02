@@ -7,12 +7,14 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AuthModule } from './auth/auth.module';
 import { CafeteriaModule } from './cafeteria/cafeteria.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+ 
    
   ],
   imports: [
@@ -21,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     AuthModule,
     CafeteriaModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

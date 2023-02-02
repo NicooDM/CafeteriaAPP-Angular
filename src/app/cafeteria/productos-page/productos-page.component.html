@@ -1,49 +1,109 @@
-<h1 class="text-center styleFoont">Seleccionar Productos</h1>
+
+
 <div class="row">
-  <div class="col-sm-12 col-md-6">
-    <h3 class="text-center styleFoont">Productos</h3>
+  <div class="col-sm-12 col-md-4">
+    <h3 class="text-center styleFoont">Infusiones</h3>
+   
     <ul class="styleFoont">
-      <li *ngFor="let item of productos; let i = index">
-        {{ item.producto }} ${{ item.precio }}
-        <pre>{{ item.descripcion }} </pre><button class="btn btn-outline-danger mx-2" [disabled]="noUser"><i class="bi bi-heart-fill  mx-2" (click)="seleccionarFavorito(i)"></i></button>
-        <button class="btn btn-outline-success mx-2" (click)="seleccionar(i)" [disabled]="userADM">
+      <li *ngFor="let item of productosInfu ; let i = index">
+        {{item.producto}} ${{item.precio}}
+        
+        <pre>{{item.descripcion}}</pre>
+        <button class="btn btn-outline-danger mx-2" [disabled]="noUser" (click)="seleccionarFavoritoInfu(i)">
+          <i class="bi bi-heart-fill mx-2"></i>
+        </button>
+        <button
+          class="btn btn-outline-success mx-2"
+          (click)="seleccionarInfu(i)"
+          [disabled]="userADM"
+        >
           <i class="bi bi-bag-plus-fill"></i>
         </button>
       </li>
     </ul>
     
 
- 
-    
   </div>
-  <div class="col-sm-12 col-md-6">
-    <h2 class="text-center styleFoont">Total a Pagar</h2>
-    <hr />
+  <div class="col-sm-12 col-md-4">
+    <h3 class="text-center styleFoont">Acompañamientos</h3>
+   
     <ul class="styleFoont">
-      <li *ngFor="let itemSeleccionado of productoSeleccionado">
-        <h5>{{ itemSeleccionado }}</h5>
+      <li *ngFor="let item of productosAcom ; let i = index">
+        {{item.producto}} ${{item.precio}}
+        <pre>{{item.descripcion}}</pre>
+        <button class="btn btn-outline-danger mx-2" [disabled]="noUser" (click)="seleccionarFavoritoAcom(i)" >
+          <i class="bi bi-heart-fill mx-2" ></i>
+        </button>
+        <button
+          class="btn btn-outline-success mx-2"
+          (click)="seleccionarAcom(i)"
+        
+          
+          [disabled]="userADM"
+        >
+          <i class="bi bi-bag-plus-fill"></i>
+        </button>
       </li>
     </ul>
-    <div>
+    
 
-      <h2 class="text-center styleFoont">
-       {{descuentoObtenido?'Total con Descuento %10':'Total'}} :
-        <span class="badge text-bg-success"
-          ><i class="bi bi-currency-dollar"></i>{{ total }}</span
+  </div>
+  <div class="col-sm-12 col-md-4">
+    <h3 class="text-center styleFoont">Promociones</h3>
+   
+    <ul class="styleFoont">
+      <li *ngFor="let item of productosProm;let i = index">
+        {{item.producto}} ${{item.precio}}
+        
+        <pre>{{item.descripcion}} </pre>
+        <button class="btn btn-outline-danger mx-2" [disabled]="noUser" (click)="seleccionarFavoritoProm(i)">
+          <i class="bi bi-heart-fill mx-2" ></i>
+        </button>
+        <button
+          class="btn btn-outline-success mx-2"
+          (click)="seleccionarProm(i)"
+          
+          
+          [disabled]="userADM"
         >
-        
-        
-      </h2>
-    </div>
+          <i class="bi bi-bag-plus-fill"></i>
+        </button>
+      </li>
+    </ul>
+    
+  </div>
+  <div class="alert alert-info text-center" role="alert" *ngIf="mostrarFav">
+    Para Guardar en Favoritos - Ingresa a tu cuenta!
+  </div>
+  <div class="col-sm-12 col-md-6">
+  </div>
+  <h2 class="text-center styleFoont">Total a Pagar</h2>
+  <hr />
+  <ul class="styleFoont">
+    <li *ngFor="let itemSeleccionado of productoSeleccionado">
+      <h5>{{ itemSeleccionado }}</h5>
+    </li>
+  </ul>
+  <div>
+    <h2 class="text-center styleFoont">
+      {{ descuentoObtenido ? "Total con Descuento %10" : "Total" }} :
+      <span class="badge text-bg-success"
+        ><i class="bi bi-currency-dollar"></i>{{ total }}</span
+      >
+    </h2>
+  </div>
+  <div class="d-flex justify-content-center">
     <div class="alert alert-warning" role="alert" *ngIf="mostrarAlert">
       Registrate o Ingresa para Obtener 10% de descuento!
     </div>
     <button
-      class="btn btn-outline-success"
+      class="btn btn-outline-success w-25 "
       (click)="pagar()"
       [disabled]="Noseleccionado"
     >
       <i class="bi bi-credit-card-2-back-fill"></i>PAGAR
     </button>
+
   </div>
 </div>
+

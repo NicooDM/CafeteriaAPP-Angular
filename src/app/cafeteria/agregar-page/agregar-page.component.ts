@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Productos } from '../interface/productos.interface';
 import { CafeteriaService } from '../cafeteria.service';
-import {Router } from '@angular/router';
-import Swal from 'sweetalert2'
-
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agregar-page',
@@ -13,22 +12,27 @@ import Swal from 'sweetalert2'
 export class AgregarPageComponent implements OnInit {
   modificar: boolean = false;
   incompleted: boolean = false;
-  productos: Productos[] = [];
-  producto: Productos | any= {
+  productos: Productos[] |any= [];
+  producto: Productos |any = {
     producto: '',
-    precio:null,
-    cantidad: null,
+    precio: 0,
+    cantidad: 0,
     descripcion: '',
+    tipo: ''
   };
 
-  
-  constructor(private cafeteriaService: CafeteriaService, private route : Router) {}
+  constructor(
+    private cafeteriaService: CafeteriaService,
+    private route: Router
+  ) {}
   ngOnInit(): void {
     this.cafeteriaService.getProductos().subscribe((prod) => {
+     
       this.productos = prod;
+      console.log(this.productos.producto)
     });
-
-    console.log(this.producto);
+    
+  
   }
   agregarProducto() {
     if (this.producto.producto.trim().length === 0) {
@@ -40,19 +44,21 @@ export class AgregarPageComponent implements OnInit {
       this.cafeteriaService.editarProductos(this.producto).subscribe((resp) => {
         console.log(resp);
       });
-      Swal.fire('Producto Actualizado','producto actualizado con exito','success')
-      this.producto = ''
-      this.route.navigate(['productos'])
-    } else if(this.producto.precio >0){
+      Swal.fire(
+        'Producto Actualizado',
+        'producto actualizado con exito',
+        'success'
+      );
+      this.producto = '';
+      this.route.navigate(['productos']);
+    } else if (this.producto.precio > 0) {
       this.cafeteriaService
         .agregarProductos(this.producto)
-        .subscribe((resp) => console.log(resp))
-        Swal.fire('Producto Guardado','producto guardado con exito','success')
-    this.producto=''
-    this.route.navigate(['productos'])
-
-    }
-    else{
+        .subscribe((resp) => console.log(resp));
+      Swal.fire('Producto Guardado', 'producto guardado con exito', 'success');
+      this.producto = '';
+      this.route.navigate(['productos']);
+    } else {
       this.incompleted = true;
       return;
     }
@@ -61,28 +67,23 @@ export class AgregarPageComponent implements OnInit {
     console.log(this.productos[index]);
     Swal.fire({
       title: 'Desea Borrar?',
-      text: "Esta Accion es irreversible!",
+      text: 'Esta Accion es irreversible!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, Borrar!'
+      confirmButtonText: 'Si, Borrar!',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.cafeteriaService.borrarProductos(this.productos[index].id)
-      .subscribe((resp) => {console.log(resp)
-        this.route.navigate(['productos'])
+        this.cafeteriaService
+          .borrarProductos(this.productos[index].id)
+          .subscribe((resp) => {
+            console.log(resp);
+            this.route.navigate(['productos']);
+          });
+        Swal.fire('Borrado!', 'Producto Borrado con Exito.', 'success');
       }
-      
-      );
-        Swal.fire(
-          'Borrado!',
-          'Producto Borrado con Exito.',
-          'success'
-        )
-      }
-    })
-      
+    });
   }
   modificarElemento(index: number) {
     this.producto = this.productos[index];

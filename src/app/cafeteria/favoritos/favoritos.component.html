@@ -1,17 +1,27 @@
-
 <h2 class="text-center styleFoont">Mis Favoritos</h2>
-<hr>
+<hr />
 
 <div class="row">
-    <div class="col-sm-12 col-md-6">
-        <ul>
-            <li *ngFor="let item of favoritosSeleccionado">{{item}}</li>
-        </ul>
-        
-
+  <div class="col-sm-12 col-md-6">
+    <div class="card" style="width: 18rem">
+      <ul class="list-group list-group-flush">
+        <li
+          class="list-group-item"
+          *ngFor="let item of favoritosPorID; let i = index"
+        >
+        <i class="bi bi-star-fill text-danger"></i>{{ item.producto
+          }}<i
+            class="bi bi-trash3-fill text-danger favBorrar mx-3"
+            (click)="borrarFav(i)"
+          ></i>
+        </li>
+      </ul>
     </div>
-    <div class="col-sm-12 col-md-6">
-        <img src="../../../assets/22actp.jpeg" alt="favoritosImg" class="w-100">
-
+    <div class="alert alert-danger" role="alert" *ngIf="mostrarAlert">
+      Favorito Borrado!
     </div>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <img src="../../../assets/22actp.jpeg" alt="favoritosImg" class="w-100" />
+  </div>
 </div>

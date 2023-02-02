@@ -8,10 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { MisComprasComponent } from './mis-compras/mis-compras.component';
 import { FavoritosComponent } from './favoritos/favoritos.component';
-
-
-
-
+import { FilterPipe } from '../pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,17 +19,9 @@ import { FavoritosComponent } from './favoritos/favoritos.component';
     RegistrarseComponent,
     MisComprasComponent,
     FavoritosComponent,
-  
-    
-    
+    FilterPipe
   ],
-  exports:[
-    FooterComponent,
-    AgregarPageComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule
-  ]
+  exports: [FooterComponent, AgregarPageComponent],
+  imports: [CommonModule, FormsModule],
 })
-export class CafeteriaModule { }
+export class CafeteriaModule {}

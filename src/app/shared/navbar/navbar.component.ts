@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CafeteriaService } from '../../cafeteria/cafeteria.service';
-import { Productos } from 'src/app/cafeteria/interface/productos.interface';
 
 @Component({
   selector: 'app-navbar',
@@ -9,45 +7,65 @@ import { Productos } from 'src/app/cafeteria/interface/productos.interface';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  buscarTermino:  |any;
-  log: boolean | any;
-  logUser:boolean = false;
-  mostrarBtn: boolean | any;
-  resultado: Productos[] | any=[]
-  favoritos:string[]|any=[];
+  logAdmin:boolean|any;
+  logUser:boolean|any;
+  logOut:string|any
+  logeados:boolean|any
+  logUserLocal:string=''
+  userNav:string|any=''
 
+ 
   ngOnInit() {
-    if (localStorage.getItem('user') && localStorage.getItem('pass')) {
-      this.log = true;
-      this.mostrarBtn = false;
-    } else {
-      this.mostrarBtn = true;
-    }
-    if (localStorage.getItem('user')==='user' && localStorage.getItem('pass')==='user') {
-      this.log=false;
-      this.logUser = true;
-      this.mostrarBtn = false;
-      
-      this.favoritos.push(localStorage.getItem('favoritos'))
-      console.log(this.favoritos)
-      
-    }
-  }
-
-  constructor(private router: Router,private cafeteriaService : CafeteriaService) {}
-  logout() {
-    localStorage.removeItem('user');
-    localStorage.removeItem('pass');
-    this.router.navigate(['login']);
-    this.mostrarBtn = true;
-  }
-  buscar(termino:string){
-   termino = this.buscarTermino;
-    this.cafeteriaService.getProductoByName(termino).subscribe((producto)=>{
-      this.resultado = producto;
-      console.log(this.resultado)
-    })
+   
+    this.userNav=localStorage.getItem('usuarioAmostrar')
+    
   
 
+    this.logOut='';
+    if (
+      localStorage.getItem('usuario') === "admin" &&
+      localStorage.getItem('passwordUser') === "admin"
+    ) {
+      this.logAdmin=true;
+      this.logeados=true;
+      this.logOut='logout';
+      this.logUserLocal='admin';
+    }
+    if (
+      localStorage.getItem('usuario') &&
+      localStorage.getItem('passwordUser') 
+    ) {
+      this.logUser=true;
+      this.logAdmin=false;
+      this.logeados=true;
+      this.logOut='logout';
+      this.logUserLocal='user';
+      
+      
+      
+
+      
+    } 
+   
   }
+
+  constructor(private router: Router) {}
+  logout() {
+ 
+    localStorage.removeItem('usuario');
+    localStorage.removeItem('passwordUser');
+    localStorage.removeItem('id');
+    this.logAdmin=false;
+    this.logUser=false;
+    this.logOut='';
+    this.logeados=false;
+    this.logUserLocal='';
+    this.router.navigate(['login'])
+    localStorage.removeItem('usuarioAmostrar')
+    this.userNav=''
+
+
+    
+  }
+
 }

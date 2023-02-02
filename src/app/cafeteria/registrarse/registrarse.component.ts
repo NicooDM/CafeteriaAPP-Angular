@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Users } from '../interface/users.interface';
 import { UsersService } from '../users.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-registrarse',
   templateUrl: './registrarse.component.html',
@@ -13,6 +14,7 @@ export class RegistrarseComponent {
   emailTermino: string = '';
   passwordTermino: string = '';
   regError: boolean = false;
+  mensajeAlert:boolean=false;
   users: Users[] | any = [];
   user: Users | any = {
     Nombre: '',
@@ -20,7 +22,7 @@ export class RegistrarseComponent {
     Email: '',
     password: '',
   };
-  constructor(private userService: UsersService) {}
+  constructor(private userService: UsersService, private router : Router) {}
   registrarUser() {
     this.user = {
       Nombre: this.nombreTermino,
@@ -28,12 +30,15 @@ export class RegistrarseComponent {
       Email: this.emailTermino,
       password: this.passwordTermino,
     };
-    this.users = this.user
-      this.userService.registerUser(this.users).subscribe((resp) => {
-        console.log(resp);
-        
-      });
+    this.users = this.user;
+    this.userService.registerUser(this.users).subscribe((resp) => {
+      this.mensajeAlert=true;
+      this.nombreTermino=''
+      this.usuarioTermino=''
+      this.emailTermino=''
+      this.passwordTermino=''
+      console.log(resp);
       
-   
+    });
   }
 }

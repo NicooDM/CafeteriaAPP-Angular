@@ -5,40 +5,72 @@
     <div class="col-sm-12 col-md-6 styleFoont">
       <form class="texst-center">
         <label class="form-label fw-bold">Nombre Producto</label>
-        <input type="text" class="form-control" [(ngModel)]="producto.producto" name="terminoNombre" required/>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="producto.producto"
+          name="terminoNombre"
+          required
+        />
 
         <label class="form-label fw-bold">Cantidad</label>
-        <input type="number" class="form-control" [(ngModel)]="producto.cantidad" name="terminoCantidad" required/>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="producto.cantidad"
+          name="terminoCantidad"
+          required
+        />
         <label class="form-label fw-bold">Descripcion</label>
-        <input type="text" class="form-control" [(ngModel)]="producto.descripcion" name="terminoDescripcion" required/>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="producto.descripcion"
+          name="terminoDescripcion"
+          required
+        />
+        <label >Elegir Seccion</label>
+        <select class="form-select" aria-label="Default select example"[(ngModel)]="producto.tipo" name="productoTipo">
+          <option selected ></option>
+          <option >Infusiones</option>
+          <option >Acompañamientos</option>
+          <option >Promociones</option>
+        </select>
 
         <label class="form-label fw-bold">Precio</label>
-        <input type="number" class="form-control"[(ngModel)]="producto.precio" name="terminoPrecio" required/>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="producto.precio"
+          name="terminoPrecio"
+          required
+        />
 
-        <button class="btn btn-outline-success my-3" (click)="agregarProducto()">
+        <button
+          class="btn btn-outline-success my-3"
+          (click)="agregarProducto()"
+        >
           Guardar
         </button>
         <div class="alert alert-danger" role="alert" *ngIf="incompleted">
-         Debes Completar con todos los datos!
+          Debes Completar con todos los datos!
         </div>
-       
       </form>
     </div>
     <div class="col-sm-12 col-md-6 styleFoont">
       <h4>Lista De Productos</h4>
       <ul>
         <li *ngFor="let item of productos; let i = index">
-          {{item.producto}} <pre>{{item.descripcion}}</pre>
-          <button class="btn btn-danger my-3" (click)="borrarProducto(i)">
+            {{item.producto}}
+          <pre>{{item.descripcion}}</pre>
+          <button class="btn btn-danger my-3"(click)="borrarProducto(i)">
             <i class="bi bi-trash"></i>
           </button>
-          <button class="btn btn-warning mx-3" (click)="modificarElemento(i)">
+          <button class="btn btn-warning mx-3"(click)="modificarElemento(i)">
             <i class="bi bi-pencil"></i>
           </button>
         </li>
-        
       </ul>
     </div>
-    
   </div>
 </div>

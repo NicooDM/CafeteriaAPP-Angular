@@ -1,46 +1,41 @@
-<nav class="navbar navbar-expand-lg styleFoont ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Cafeteria</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink=""><i class="bi bi-house"></i>Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/productos"><i class="bi bi-list"></i>Productos</a>
-          </li>
-          <li class="nav-item"  *ngIf="logUser">
-            <a class="nav-link" routerLink="/favoritos"><i class="bi bi-heart-fill text-danger"></i>Favoritos</a>
-          </li>
+ <a href="" class="text-center nav-link"><h1>Smile Cafeteria</h1></a>
+<nav class=" navbar navbar-expand-lg  bg-body-tertiary">
+ 
+  <div class="container-fluid">
+    <img src="../../../assets/logo-smile-coffee-sobre-negro-200x200-1.png" alt="logoNav" class="logoNav" >
+  
+    
+    
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-light">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href=""><h4>Home</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/productos"><h4>Catalogo</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/registrarse"*ngIf="logUserLocal==''"><h4>Registrarse</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/misCompras" *ngIf="logUserLocal=='user'"><h4>Compras</h4></a>
+        </li>
         
-          <li class="nav-item" *ngIf="logUser">
-            <a class="nav-link" routerLink="misCompras"><i class="bi bi-bag-check-fill mx-1"></i>Mis Compras</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/favoritos" *ngIf="logUserLocal=='user'"><h4>Favoritos</h4></a>
+        </li>
+        <li class="nav-item"*ngIf="logAdmin===true">
+          <a class="nav-link" routerLink="/agregar" ><h4>Mod Catalogo</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" *ngIf="logUserLocal==''"><h4>Ingresar</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  (click)="logout()"*ngIf="logOut=='logout'"><h4>{{userNav}} Cerrar Seccion</h4></a>
+        </li>
        
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/registrarse" *ngIf="mostrarBtn"> <i class="bi bi-person-plus-fill"></i>Registrarse</a>
-          </li>
-          
-          <li class="nav-item" *ngIf="mostrarBtn">
-            <a class="nav-link" routerLink="/login"><i class="bi bi-person-fill"></i>Ingresar</a>
-          </li>
-          <li class="nav-item" *ngIf="log===true">
-            <a class="nav-link" routerLink="/agregar"><i class="bi bi-plus"></i>Agregar</a>
-          </li>
-          <li class="nav-item" *ngIf="log===true || logUser===true">
-            <a class="nav-link" (click)="logout()" routerLink=""><i class="bi bi-box-arrow-right mx-1"></i>Logout</a>
-          </li>
-        
-         
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar Productos" aria-label="Search" [(ngModel)]="buscarTermino" name="buscarTermino">
-          <button class="btn btn-outline-success" type="submit"(click)="buscar(buscarTermino)"><i class="bi bi-search"></i></button>
-        </form>
-        
-      </div>
+      </ul>
+     
     </div>
-  </nav>
+  </div>
+</nav>
