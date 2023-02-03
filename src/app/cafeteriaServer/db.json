@@ -1,0 +1,331 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "usuario": "admin",
+      "password": "admin"
+    }
+  ],
+  "usuariosNormal": [
+    {
+      "id": 2,
+      "Nombre": "user1",
+      "usuario": "user1",
+      "Email": "user1@user.com",
+      "password": "user1",
+      "favoritos": "",
+      "compras": ""
+    },
+    {
+      "Nombre": "user2",
+      "usuario": "user2",
+      "Email": "user2@user2.com",
+      "password": "user2",
+      "id": 3
+    },
+    {
+      "Nombre": "user3",
+      "usuario": "user3",
+      "Email": "user3@user.com",
+      "password": "user3",
+      "id": 4
+    },
+    {
+      "Nombre": "user4",
+      "usuario": "user4",
+      "Email": "user4@user.com",
+      "password": "user4",
+      "id": 5
+    },
+    {
+      "Nombre": "Nicolas",
+      "usuario": "nicolas",
+      "Email": "nicolas@nicolas",
+      "password": "nicolas",
+      "id": 6
+    },
+    {
+      "Nombre": "Nicolas",
+      "usuario": "nicolas",
+      "Email": "nicolas@nicolas",
+      "password": "nicolas",
+      "id": 7
+    },
+    {
+      "Nombre": "martin",
+      "usuario": "martin123",
+      "Email": "martin@martin",
+      "password": "martin123",
+      "id": 8
+    },
+    {
+      "Nombre": "nicolas123",
+      "usuario": "nicolas123",
+      "Email": "nicolas12@nicolas.com",
+      "password": "nicolas123",
+      "id": 9
+    },
+    {
+      "Nombre": "nicolas1",
+      "usuario": "nicolas1",
+      "Email": "nicolas1@gmail.com",
+      "password": "nicolas1",
+      "id": 10
+    },
+    {
+      "Nombre": "",
+      "usuario": "",
+      "Email": "",
+      "password": "",
+      "id": 11
+    },
+    {
+      "Nombre": "dudu",
+      "usuario": "dudu123",
+      "Email": "dudu@dudu.com",
+      "password": "dudu123",
+      "id": 12
+    }
+  ],
+  "productos": [
+    {
+      "producto": "Cafe con Leche",
+      "precio": 200,
+      "cantidad": 3,
+      "descripcion": "-",
+      "tipo": "Infusiones",
+      "id": 1
+    },
+    {
+      "producto": "Submarino o Cappuccino ",
+      "precio": 300,
+      "cantidad": 5,
+      "descripcion": "-",
+      "tipo": "Infusiones",
+      "id": 2
+    },
+    {
+      "producto": "Licuado de Banana ",
+      "precio": 450,
+      "cantidad": 5,
+      "descripcion": "-",
+      "tipo": "Infusiones",
+      "id": 3
+    },
+    {
+      "producto": "Coca Cola ",
+      "precio": 500,
+      "cantidad": 5,
+      "descripcion": "500ml",
+      "tipo": "Infusiones",
+      "id": 4
+    },
+    {
+      "producto": "Tortillas",
+      "precio": 50,
+      "cantidad": 5,
+      "descripcion": "Finas o Gruesas",
+      "tipo": "Acompañamientos",
+      "id": 5
+    },
+    {
+      "producto": "Facturas ",
+      "precio": 70,
+      "cantidad": 5,
+      "descripcion": "Crema,Dulce de Leche o Sacramento",
+      "tipo": "Acompañamientos",
+      "id": 6
+    },
+    {
+      "producto": "Tostadas",
+      "precio": 60,
+      "cantidad": 5,
+      "descripcion": "Pan Lactal o Pan de Campo",
+      "tipo": "Acompañamientos",
+      "id": 7
+    },
+    {
+      "producto": "Tostado Mixto",
+      "precio": 700,
+      "cantidad": 5,
+      "descripcion": "Jamon y Queso ",
+      "tipo": "Acompañamientos",
+      "id": 8
+    },
+    {
+      "producto": "Desayuno Completo ",
+      "precio": 700,
+      "cantidad": 5,
+      "descripcion": "Infusion + Tortillas o Facturas",
+      "tipo": "Promociones",
+      "id": 9
+    },
+    {
+      "producto": "Desayuno Light ",
+      "precio": 650,
+      "cantidad": 5,
+      "descripcion": "Infusion + Tostadas",
+      "tipo": "Promociones",
+      "id": 10
+    },
+    {
+      "producto": "Desayuno Fresco ",
+      "precio": 1200,
+      "cantidad": 5,
+      "descripcion": "Licuado o Coca Cola + Tostado Mixto ",
+      "tipo": "Promociones",
+      "id": 11
+    },
+    {
+      "producto": "Desayuno para compartir Full ",
+      "precio": 1800,
+      "cantidad": 5,
+      "descripcion": "2 infusiones + 2 acompañamientos a eleccion",
+      "tipo": "Promociones",
+      "id": 12
+    }
+  ],
+  "favoritos": [
+    {
+      "producto": "Cafe Moka",
+      "user": "3",
+      "id": 15
+    },
+    {
+      "producto": "Promo Para Compartir",
+      "user": "4",
+      "id": 18
+    },
+    {
+      "producto": "Pepsi Cola",
+      "user": "8",
+      "id": 19
+    },
+    {
+      "producto": "Cafe con Leche",
+      "user": "12",
+      "id": 20
+    },
+    {
+      "producto": "Facturas ",
+      "user": "12",
+      "id": 21
+    },
+    {
+      "producto": "Desayuno para compartir Full ",
+      "user": "12",
+      "id": 22
+    }
+  ],
+  "compras": [
+    {
+      "producto": "Cafe Moka",
+      "user": "3",
+      "id": 15
+    },
+    {
+      "producto": "Cafe Irlandes",
+      "user": "3",
+      "id": 16
+    },
+    {
+      "producto": "Pepsi Cola",
+      "user": "2",
+      "id": 17
+    },
+    {
+      "producto": [
+        "Promo Para Compartir",
+        "Desayuno Energetico"
+      ],
+      "user": "2",
+      "id": 18
+    },
+    [
+      "Promo Para Compartir",
+      "Desayuno Energetico",
+      "Pepsi Cola"
+    ],
+    [
+      "Promo Para Compartir",
+      "Desayuno Energetico",
+      "Pepsi Cola"
+    ],
+    {
+      "id": 21
+    },
+    {
+      "producto": [
+        "Promo Para Compartir",
+        "Desayuno Energetico"
+      ],
+      "id": 22
+    },
+    {
+      "producto": [
+        "Pepsi Cola",
+        "Cafe Moka",
+        "Cafe Irlandes"
+      ],
+      "user": "2",
+      "id": 23
+    },
+    {
+      "producto": [
+        "Promo Para Compartir",
+        "Desayuno Energetico"
+      ],
+      "user": "2",
+      "id": 24
+    },
+    {
+      "producto": [
+        "Cafe Irlandes"
+      ],
+      "user": "2",
+      "id": 25
+    },
+    {
+      "producto": [
+        "Cafe Irlandes"
+      ],
+      "user": "4",
+      "id": 26
+    },
+    {
+      "producto": [
+        "Promo Para Compartir",
+        "Desayuno Energetico",
+        "Pepsi Cola"
+      ],
+      "user": "8",
+      "id": 27
+    },
+    {
+      "producto": [
+        "Promo Para Compartir",
+        "Desayuno Energetico",
+        "Pepsi Cola",
+        "Cafe Moka"
+      ],
+      "user": "8",
+      "id": 28
+    },
+    {
+      "producto": [
+        "Tostado Mixto",
+        "Tostadas"
+      ],
+      "user": "2",
+      "id": 29
+    },
+    {
+      "producto": [
+        "Cafe con Leche",
+        "Submarino o Cappuccino "
+      ],
+      "user": "2",
+      "id": 30
+    }
+  ]
+}
